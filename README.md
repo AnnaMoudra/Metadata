@@ -1,5 +1,5 @@
 ## Collection of scripts to prep data for BananaGL
 
 * grid_test - cityseer tool tests
-* mosty - Molday bridges condition data
+* mosty - Moldau bridges condition data, export from CSV to SHP and link with bridge geometry
 * pamatky - Prague tourism destination data
