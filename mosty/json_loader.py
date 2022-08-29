@@ -6,12 +6,10 @@ from shapely.geometry import Point
 import http.client
 from tqdm import tqdm
 
-
 def map_objects_scraper(filename):
     url = 'bms.clevera.cz'
     conn = http.client.HTTPConnection(host=url)
     headers = {'Content-type': 'application/json'}
-
     content = {
         "bounds":{
             "epsg":"5514",
@@ -29,7 +27,6 @@ def map_objects_scraper(filename):
     response = conn.getresponse()
     print(response.status)
     data = response.read().decode()
-
     open(filename, 'w').write(data)
     
 
@@ -83,9 +80,7 @@ def extract_jsons_to_csv(directory_json, csv_file):
             
 
 token_file = '../data/token.json'
-
 bms_url = 'http://bms.clevera.cz/api/assetregistermap/GetMapObjekt?g='
-
 zip_file = "../data/mosty_dump.zip"
 json_dir = "../data/mosty_json_scraped/"
 csv_file = "../data/mosty_ids_dump.csv"
@@ -141,8 +136,8 @@ def concat_files_to_csv():
 
     gdf.to_csv("../data/mosty_stav_scraped_all.csv")
 
-#map_objects = load_map_objects(map_objects_file)
-#load_files(map_objects)
+map_objects = load_map_objects(map_objects_file)
+load_files(map_objects)
 concat_files_to_csv()
 
 
